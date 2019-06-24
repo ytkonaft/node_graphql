@@ -3,16 +3,15 @@ const bodyParser = require("body-parser");
 const graphQlHttp = require("express-graphql");
 const { buildSchema } = require("graphql");
 
-
 const app = express();
 
-const eventsStore = []
+const eventsStore = [];
 
 app.use(bodyParser.json());
 
 app.get("/", (req, resp, next) => {
   resp.send("Hello");
-}); 
+});
 
 app.use(
   "/graphql",
@@ -50,16 +49,16 @@ app.use(
       users: () => {
         return ["user1", "user2", "user3"];
       },
-      createEvent: ({eventInput}) => {
+      createEvent: ({ eventInput }) => {
         const event = {
           _id: Math.random().toString(),
           title: eventInput.title,
-          description: eventInput.description, 
+          description: eventInput.description,
           price: +eventInput.price,
           date: eventInput.date
-        }
+        };
         eventsStore.push(event);
-        return event
+        return event;
       }
     },
     graphiql: true
