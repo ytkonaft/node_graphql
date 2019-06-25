@@ -1,0 +1,9 @@
+{
+  "env": {
+    "USER": "root",
+    "PASSWORD": "password",
+    "HOST": "localhost",
+    "PORT": "27017",
+    "DB_NAME": "graph"
+  }
+}
